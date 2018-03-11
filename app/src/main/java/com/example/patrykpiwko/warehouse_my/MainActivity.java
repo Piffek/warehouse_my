@@ -1,5 +1,6 @@
 package com.example.patrykpiwko.warehouse_my;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,10 +28,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.btnLogIn:
-                Log.d(TAG, "LogIn");
+                Intent moveToLogin = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(moveToLogin);
                 break;
             case R.id.btnSignIn:
-                Log.d(TAG, "SignIn");
+                Intent moveToRegister = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(moveToRegister);
                 break;
             default:
                 finish();
