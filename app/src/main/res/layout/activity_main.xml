@@ -9,19 +9,25 @@
 
     <Button
         android:id="@+id/btnLogIn"
-        android:layout_width="384dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:text="Zaloguj"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="52dp" />
 
     <Button
         android:id="@+id/btnSignIn"
-        android:layout_width="372dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:text="Zarejestruj"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="116dp" />
+
+    <fragment
+        android:name="com.example.patrykpiwko.warehouse_my.RegisterFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/authFragment" />
+
+
 </android.widget.LinearLayout>

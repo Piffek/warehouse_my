@@ -1,11 +1,12 @@
 package com.example.patrykpiwko.warehouse_my;
 
-import android.content.Intent;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.support.v4.app.Fragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button loginButton;
@@ -22,18 +23,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button signInButton = (Button) findViewById(R.id.btnSignIn);
         signInButton.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        Fragment authFragment;
         switch(view.getId()){
             case R.id.btnLogIn:
-                Intent moveToLogin = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(moveToLogin);
+                authFragment = new LoginFragment();
+                ft.replace(R.id.authFragment, authFragment).commit();
                 break;
             case R.id.btnSignIn:
-                Intent moveToRegister = new Intent(MainActivity.this, RegisterActivity.class);
-                startActivity(moveToRegister);
+                authFragment = new RegisterFragment();
+                ft.replace(R.id.authFragment, authFragment).commit();
                 break;
             default:
                 finish();
