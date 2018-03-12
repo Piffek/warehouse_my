@@ -23,10 +23,17 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="116dp" />
 
-    <fragment
-        android:name="com.example.patrykpiwko.warehouse_my.RegisterFragment"
+    <Button
+        android:id="@+id/btnTask1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="100dp"
+        android:text="Task One"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="116dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:id="@+id/authFragment" />
 
 

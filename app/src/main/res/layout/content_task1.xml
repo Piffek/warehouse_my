@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.patrykpiwko.warehouse_my.Task1Activity"
+    tools:showIn="@layout/activity_task1">
+
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:text="Hello World!"
+        android:gravity="center"
+        android:textColor="@color/red_A700"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="20dp"
+        android:background="@color/red_A700"
+        />
+
+    <TextView
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="Hello World!"
+        android:gravity="center"
+        android:textColor="@color/red_A100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="20dp"
+        android:background="@color/red_A100"
+        />
+
+    <TextView
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="80dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="Hello World!"
+        android:gravity="center"
+        android:textColor="@color/yellow_A200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="20dp"
+        android:background="@color/yellow_A200"
+        />
+
+    <TextView
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="120dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="Hello World!"
+        android:gravity="center"
+        android:textColor="@color/green_A700"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="20dp"
+        android:background="@color/green_A700"
+        />
+
+    <TextView
+    android:layout_marginLeft="140dp"
+    android:layout_marginTop="160dp"
+    android:layout_width="80dp"
+    android:layout_height="40dp"
+    android:text="Hello World!"
+    android:gravity="center"
+    android:textColor="@color/indigo_A400"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:paddingHorizontal="20dp"
+    android:background="@color/indigo_A400"
+    />
+
+    <TextView
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="200dp"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="Hello World!"
+        android:gravity="center"
+        android:textColor="@color/purple_400"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="20dp"
+        android:background="@color/purple_400"
+        />
+
+    <TextView
+        android:layout_marginTop="240dp"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:text="Hello World!"
+        android:gravity="center"
+        android:textColor="@color/pink_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="20dp"
+        android:background="@color/pink_200"
+        />
+</android.widget.RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.patrykpiwko.warehouse_my;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button signInButton = (Button) findViewById(R.id.btnSignIn);
         signInButton.setOnClickListener(this);
 
+        Button taskOne = (Button) findViewById(R.id.btnTask1);
+        taskOne.setOnClickListener(this);
+
     }
 
     @Override
@@ -40,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 authFragment = new RegisterFragment();
                 ft.replace(R.id.authFragment, authFragment).commit();
                 break;
+            case R.id.btnTask1:
+                Intent moveToTask1 = new Intent(MainActivity.this, Task1Activity.class);
+                startActivity(moveToTask1);
             default:
                 finish();
         }

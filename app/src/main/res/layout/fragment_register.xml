@@ -4,15 +4,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.patrykpiwko.warehouse_my.RegisterFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/background_light"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="@string/hello_blank_fragment"
-        android:textAlignment="center"
-        android:visibility="visible" />
-
     <EditText
         android:id="@+id/nameInputSignIn"
         android:layout_width="match_parent"
