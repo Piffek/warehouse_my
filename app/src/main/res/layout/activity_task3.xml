@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context="com.example.patrykpiwko.warehouse_my.Task3Activity">
 
     <RelativeLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/text1"
@@ -45,15 +46,16 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_marginBottom="50dp"
-        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
 
     </LinearLayout>
 
     <RelativeLayout
+        android:layout_weight="1"
         android:gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
