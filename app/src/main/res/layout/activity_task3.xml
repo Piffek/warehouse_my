@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.patrykpiwko.warehouse_my.Task3Activity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_alignParentStart="true"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="Hello World!"
+            android:gravity="center"
+            android:textColor="@color/red_A700"
+            android:paddingHorizontal="20dp"
+            android:background="@color/red_A700"
+            />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_centerHorizontal="true"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:text="Hello World!"
+            android:gravity="center"
+            android:textColor="@color/orange_400"
+            android:paddingHorizontal="20dp"
+            android:background="@color/orange_400"
+            />
+
+        <TextView
+            android:layout_alignParentEnd="true"
+            android:id="@+id/text3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="Hello World!"
+            android:gravity="center"
+            android:textColor="@color/yellow_A200"
+            android:paddingHorizontal="20dp"
+            android:background="@color/yellow_A200"
+            />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/text8"
+            android:layout_width="80dp"
+            android:layout_height="150dp"
+            android:text="Hello World!"
+            android:textColor="@color/yellow_A200"
+            android:background="@color/yellow_A200"
+            />
+
+    </RelativeLayout>
+
+</android.widget.LinearLayout>
