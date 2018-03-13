@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="80dp">
 
         <TextView
             android:id="@+id/text1"
@@ -17,9 +17,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:text="Hello World!"
-            android:gravity="center"
             android:textColor="@color/red_A700"
-            android:paddingHorizontal="20dp"
             android:background="@color/red_A700"
             />
 
@@ -29,9 +27,7 @@
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:text="Hello World!"
-            android:gravity="center"
             android:textColor="@color/orange_400"
-            android:paddingHorizontal="20dp"
             android:background="@color/orange_400"
             />
 
@@ -41,9 +37,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:text="Hello World!"
-            android:gravity="center"
             android:textColor="@color/yellow_A200"
-            android:paddingHorizontal="20dp"
             android:background="@color/yellow_A200"
             />
 
@@ -51,20 +45,26 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></LinearLayout>
+        android:layout_height="80dp">
+
+
+    </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="fill_parent"
+        android:gravity="bottom"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/text8"
-            android:layout_width="80dp"
-            android:layout_height="150dp"
+            android:id="@+id/text7"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
             android:text="Hello World!"
-            android:textColor="@color/yellow_A200"
-            android:background="@color/yellow_A200"
+            android:textColor="@color/purple_A200"
+            android:background="@color/purple_A200"
             />
 
     </RelativeLayout>
