@@ -1,56 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.patrykpiwko.warehouse_my.MainActivity">
-
-    <Button
-        android:id="@+id/btnLogIn"
+<layout>
+    <data>
+        <variable
+            name="user"
+            type="com.example.patrykpiwko.warehouse_my.User"/>
+    </data>
+    <android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Zaloguj"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="52dp" />
+        android:layout_height="match_parent"
+        tools:context="com.example.patrykpiwko.warehouse_my.MainActivity">
 
-    <Button
-        android:id="@+id/btnSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Zarejestruj"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="116dp" />
+        <Button
+            android:id="@+id/btnLogIn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Zaloguj"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="52dp" />
 
-    <Button
-        android:id="@+id/btnTask1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Task One"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="116dp" />
-
-    <Button
-        android:id="@+id/btnTask2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Task Two"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="116dp" />
-
-    <Button
-        android:id="@+id/btnTask3"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Task Tree"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="116dp" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:id="@+id/authFragment" />
+        <Button
+            android:id="@+id/btnSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Zarejestruj"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="116dp" />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:text="@{user.email}"/>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:text="@{user.name}"/>
 
 
-</android.widget.LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/authFragment" />
+
+        <RelativeLayout
+            android:gravity="bottom"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTask1"
+                android:layout_alignParentEnd="true"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="1"
+                tools:layout_editor_absoluteY="116dp" />
+
+            <Button
+                android:id="@+id/btnTask2"
+                android:layout_toLeftOf="@+id/btnTask1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="2"
+                tools:layout_editor_absoluteY="116dp" />
+
+            <Button
+                android:id="@+id/btnTask3"
+                android:layout_below="@+id/btnTask1"
+                android:layout_toLeftOf="@id/btnTask1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="3"
+                tools:layout_editor_absoluteY="116dp" />
+
+        </RelativeLayout>
+
+
+
+    </android.widget.LinearLayout>
+</layout>

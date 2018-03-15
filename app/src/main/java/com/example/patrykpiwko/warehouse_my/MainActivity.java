@@ -1,6 +1,7 @@
 package com.example.patrykpiwko.warehouse_my;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.support.v4.app.Fragment;
+
+import com.example.patrykpiwko.warehouse_my.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button loginButton;
@@ -18,6 +21,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        User user = new User();
+        user.setEmail("piwko@wp.pl");
+        user.setName("Piffek");
+        binding.setUser(user);
 
         Button loginButton = (Button) findViewById(R.id.btnLogIn);
         loginButton.setOnClickListener(this);

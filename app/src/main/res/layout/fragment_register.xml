@@ -1,40 +1,46 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.patrykpiwko.warehouse_my.RegisterFragment">
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:context="com.example.patrykpiwko.warehouse_my.RegisterFragment">
 
-    <EditText
-        android:id="@+id/nameInputSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="login" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+            <EditText
+                android:layout_height="50dp"
+                android:id="@+id/nameInputSignIn"
+                android:layout_width="match_parent"
+                android:inputType="textPersonName"
+                android:text="login"
+                />
 
-    <EditText
-        android:layout_marginTop="50dp"
-        android:id="@+id/passwordInputSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="password" />
+            <EditText
+                android:id="@+id/passwordInputSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="password" />
 
-    <EditText
-        android:layout_marginTop="100dp"
-        android:id="@+id/emailInputSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="e-mail" />
+            <EditText
+                android:id="@+id/emailInputSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="e-mail" />
 
-    <Button
-        android:layout_marginTop="150dp"
-        android:id="@+id/signInAuthButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign In" />
+            <Button
+                android:id="@+id/signInAuthButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign In" />
+
+
+        </LinearLayout>
 
 </FrameLayout>
