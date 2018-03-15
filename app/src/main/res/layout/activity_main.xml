@@ -10,7 +10,7 @@
     <Button
         android:id="@+id/btnLogIn"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:text="Zaloguj"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="52dp" />
@@ -18,7 +18,7 @@
     <Button
         android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:text="Zarejestruj"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="116dp" />
@@ -26,8 +26,24 @@
     <Button
         android:id="@+id/btnTask1"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:text="Task One"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="116dp" />
+
+    <Button
+        android:id="@+id/btnTask2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Task Two"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="116dp" />
+
+    <Button
+        android:id="@+id/btnTask3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Task Tree"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="116dp" />
 
