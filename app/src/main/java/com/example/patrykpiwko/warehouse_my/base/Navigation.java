@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.example.patrykpiwko.warehouse_my.R;
 import butterknife.ButterKnife;
 
-public abstract class BaseActivity extends AppCompatActivity implements BaseActivityInterface {
+public abstract class Navigation extends AppCompatActivity implements NavigationInterface {
 
     protected abstract int getContentView();
 

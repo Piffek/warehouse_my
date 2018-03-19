@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.widget.Button;
 import com.example.patrykpiwko.warehouse_my.fragments.LoginFragment;
 import com.example.patrykpiwko.warehouse_my.R;
-import com.example.patrykpiwko.warehouse_my.base.BaseActivity;
+import com.example.patrykpiwko.warehouse_my.base.Navigation;
 import com.example.patrykpiwko.warehouse_my.fragments.RegisterFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends Navigation {
 
     @Override
     protected int getContentView() {

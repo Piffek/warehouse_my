@@ -13,7 +13,7 @@ public abstract class BaseFragment extends Fragment {
 
     public String TAG = getClass().getSimpleName();
 
-    BaseActivityInterface baseActivityInterface;
+    NavigationInterface navigationInterface;
 
     public abstract int getContentFragment();
 
@@ -34,13 +34,13 @@ public abstract class BaseFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        if(getActivity() instanceof BaseActivityInterface){
-            baseActivityInterface = (BaseActivityInterface) getActivity();
+        if(getActivity() instanceof NavigationInterface){
+            navigationInterface = (NavigationInterface) getActivity();
         }
     }
 
     @Nullable
-    public BaseActivityInterface getBaseActivityInterface() {
-        return baseActivityInterface;
+    public NavigationInterface getNavigationInterface() {
+        return navigationInterface;
     }
 }

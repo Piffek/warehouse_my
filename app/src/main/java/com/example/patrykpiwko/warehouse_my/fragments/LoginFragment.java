@@ -4,10 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
-
 import com.example.patrykpiwko.warehouse_my.R;
 import com.example.patrykpiwko.warehouse_my.base.BaseFragment;
-
 import butterknife.OnClick;
 
 public class LoginFragment extends BaseFragment {
@@ -26,13 +24,12 @@ public class LoginFragment extends BaseFragment {
 
     @OnClick(R.id.loginAuthButton)
     public void onClick(){
-        if(getBaseActivityInterface() == null){
+        if(getNavigationInterface() == null){
             Log.d(TAG, "onClick: method is null");
             return;
         }
 
-        getBaseActivityInterface().showFragment(new RegisterFragment());
+        getNavigationInterface().showFragment(new RegisterFragment());
 
     }
-
 }
