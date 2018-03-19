@@ -2,14 +2,14 @@
     <data>
         <variable
             name="user"
-            type="com.example.patrykpiwko.warehouse_my.User"
+            type="com.example.patrykpiwko.warehouse_my.models.User"
             />
     </data>
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.patrykpiwko.warehouse_my.LoginFragment">
+        tools:context="com.example.patrykpiwko.warehouse_my.fragments.LoginFragment">
 
         <!-- TODO: Update blank fragment layout -->
         <TextView

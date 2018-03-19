@@ -1,7 +1,9 @@
-package com.example.patrykpiwko.warehouse_my;
+package com.example.patrykpiwko.warehouse_my.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.patrykpiwko.warehouse_my.R;
 
 public class Task2Activity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.patrykpiwko.warehouse_my;
+package com.example.patrykpiwko.warehouse_my.models;
 
 public class User {
     public String name;

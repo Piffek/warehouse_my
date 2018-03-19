@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="150dp"
-    tools:context="com.example.patrykpiwko.warehouse_my.Task2Activity">
+    tools:context="com.example.patrykpiwko.warehouse_my.activities.Task2Activity">
     <TextView
         android:id="@+id/text1"
         android:layout_width="60dp"

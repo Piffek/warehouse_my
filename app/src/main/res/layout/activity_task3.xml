@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.example.patrykpiwko.warehouse_my.Task3Activity">
+    tools:context="com.example.patrykpiwko.warehouse_my.activities.Task3Activity">
 
     <RelativeLayout
         android:layout_weight="1"
