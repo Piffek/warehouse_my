@@ -4,15 +4,12 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.patrykpiwko.warehouse_my.R;
 import com.example.patrykpiwko.warehouse_my.base.BaseActivity;
 import com.example.patrykpiwko.warehouse_my.fragments.CountriesFragment;
 import com.example.patrykpiwko.warehouse_my.fragments.LoginFragment;
 import com.example.patrykpiwko.warehouse_my.fragments.ResultFragment;
 import com.example.patrykpiwko.warehouse_my.models.User;
-
-import butterknife.BindFont;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -47,7 +44,6 @@ public class MainActivity extends BaseActivity implements  MainActivityInterface
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         showFragment(new LoginFragment());
-
     }
 
 

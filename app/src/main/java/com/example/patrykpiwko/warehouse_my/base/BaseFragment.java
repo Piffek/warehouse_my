@@ -7,9 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.patrykpiwko.warehouse_my.activities.MainActivityInterface;
-
 import butterknife.ButterKnife;
 
 public abstract class BaseFragment extends Fragment {

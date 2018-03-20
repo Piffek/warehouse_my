@@ -42,10 +42,12 @@ public class LoginFragment extends BaseFragment {
     @OnClick(R.id.loginAuthButton)
     public void onClick(){
         String name = nameInputLogin.getText().toString();
+
         if(TextUtils.isEmpty(name)){
             Toast.makeText(getActivity(), "imie !", Toast.LENGTH_SHORT).show();
             return;
         }
+
         User user = new User();
         user.setName(name);
 
