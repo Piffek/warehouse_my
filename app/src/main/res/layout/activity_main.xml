@@ -1,76 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical"
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.patrykpiwko.warehouse_my.activities.MainActivity">
+
+    <TextView
+        android:id="@+id/topTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:gravity="center"
+        android:text="example text"
+        android:textColor="@color/blue_200"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:id="@+id/containerFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.patrykpiwko.warehouse_my.activities.MainActivity">
+        android:layout_above="@+id/bottomLayout"
+        android:layout_below="@+id/topTitle">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnLogIn"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Zaloguj"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="52dp" />
-
-        <Button
-            android:id="@+id/btnSignIn"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Zarejestruj"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="116dp" />
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="20dp"
-            android:text="@{user.email}"/>
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="20dp"
-            android:text="@{user.name}"/>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:id="@+id/authFragment" />
-
-        <RelativeLayout
-            android:gravity="bottom"
+            android:id="@+id/btn1"
+            android:background="@color/blue_200"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:text="one" />
 
-            <Button
-                android:id="@+id/btnTask1"
-                android:layout_alignParentEnd="true"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:text="1"
-                tools:layout_editor_absoluteY="116dp" />
+        <Button
+            android:id="@+id/btn2"
+            android:background="@color/blue_200"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="two" />
 
-            <Button
-                android:id="@+id/btnTask2"
-                android:layout_toLeftOf="@+id/btnTask1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:text="2"
-                tools:layout_editor_absoluteY="116dp" />
+        <Button
+            android:id="@+id/btn3"
+            android:background="@color/blue_200"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="three" />
 
-            <Button
-                android:id="@+id/btnTask3"
-                android:layout_below="@+id/btnTask1"
-                android:layout_toLeftOf="@id/btnTask1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:text="3"
-                tools:layout_editor_absoluteY="116dp" />
-
-        </RelativeLayout>
+    </LinearLayout>
 
 
-
-    </android.widget.LinearLayout>
+</android.widget.RelativeLayout>

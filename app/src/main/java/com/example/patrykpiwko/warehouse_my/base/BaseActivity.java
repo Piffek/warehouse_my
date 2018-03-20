@@ -6,13 +6,13 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
-import com.example.patrykpiwko.warehouse_my.R;
 import butterknife.ButterKnife;
 
-public abstract class Navigation extends AppCompatActivity implements NavigationInterface {
+public abstract class BaseActivity extends AppCompatActivity implements NavigationInterface {
 
     protected abstract int getContentView();
+
+    protected abstract int getFragmentContainer();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,13 +23,6 @@ public abstract class Navigation extends AppCompatActivity implements Navigation
     }
 
     @Override
-    public void showToast(String message) {
-        if(message != null){
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
     public void showFragment(Fragment fragment) {
         if(fragment == null) {
             return;
@@ -37,6 +30,6 @@ public abstract class Navigation extends AppCompatActivity implements Navigation
 
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.authFragment, fragment).commit();
+        ft.replace(getFragmentContainer(), fragment).commit();
     }
 }

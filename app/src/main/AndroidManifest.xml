@@ -16,9 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.Task3Activity" />
-        <activity android:name=".activities.Task1Activity" />
-        <activity android:name=".activities.Task2Activity"></activity>
     </application>
 
 </manifest>

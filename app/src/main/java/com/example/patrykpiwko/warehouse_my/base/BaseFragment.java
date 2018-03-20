@@ -7,21 +7,34 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.patrykpiwko.warehouse_my.activities.MainActivityInterface;
+
 import butterknife.ButterKnife;
 
 public abstract class BaseFragment extends Fragment {
 
     public String TAG = getClass().getSimpleName();
 
-    NavigationInterface navigationInterface;
+    private NavigationInterface navigationInterface;
+    private MainActivityInterface mainActivityInterface;
 
     public abstract int getContentFragment();
+
+    public abstract String getTitle();
+
+    public abstract int getCurrentSelected();
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         ButterKnife.bind(this, view);
+
+        if(getMainActivityInterface() != null){
+            getMainActivityInterface().setTitle(getTitle());
+            getMainActivityInterface().setCurrentSelected(getCurrentSelected());
+        }
     }
 
     @Nullable
@@ -37,10 +50,19 @@ public abstract class BaseFragment extends Fragment {
         if(getActivity() instanceof NavigationInterface){
             navigationInterface = (NavigationInterface) getActivity();
         }
+
+        if(getActivity() instanceof MainActivityInterface){
+            mainActivityInterface = (MainActivityInterface) getActivity();
+        }
     }
 
     @Nullable
     public NavigationInterface getNavigationInterface() {
         return navigationInterface;
+    }
+
+    @Nullable
+    public MainActivityInterface getMainActivityInterface(){
+        return  mainActivityInterface;
     }
 }
