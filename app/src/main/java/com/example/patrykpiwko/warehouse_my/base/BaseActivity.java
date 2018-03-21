@@ -32,4 +32,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(getFragmentContainer(), fragment).commit();
     }
+
+
 }

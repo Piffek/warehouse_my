@@ -3,7 +3,10 @@ package com.example.patrykpiwko.warehouse_my.activities;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.widget.Button;
+import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.patrykpiwko.warehouse_my.R;
 import com.example.patrykpiwko.warehouse_my.base.BaseActivity;
 import com.example.patrykpiwko.warehouse_my.fragments.CountriesFragment;
@@ -85,6 +88,11 @@ public class MainActivity extends BaseActivity implements  MainActivityInterface
         return userData;
     }
 
+    @Override
+    public void deleteUserData() {
+        userData = null;
+    }
+
     @OnClick(R.id.btn1)
     public void onBtn1Click(){
         showFragment(new LoginFragment());
@@ -97,6 +105,10 @@ public class MainActivity extends BaseActivity implements  MainActivityInterface
 
     @OnClick(R.id.btn3)
     public void onBtn3Click(){
+        if(userData == null){
+            Toast.makeText(this, "You have not access to this page", Toast.LENGTH_SHORT).show();
+            return;
+        }
         showFragment(new CountriesFragment());
     }
 }

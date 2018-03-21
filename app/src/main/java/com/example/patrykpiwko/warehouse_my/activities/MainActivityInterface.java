@@ -10,4 +10,6 @@ public interface MainActivityInterface {
     public void setUserData(User user);
 
     public User getUsetData();
+
+    public void deleteUserData();
 }

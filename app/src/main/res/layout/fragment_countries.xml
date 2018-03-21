@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/relativ"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/userName"
-            android:text="name"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="100dp" />
-
-        <TextView
-            android:id="@+id/userPassword"
-            android:layout_below="@+id/userName"
-            android:text="password"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            />
+            android:gravity="center"
+            android:text="name"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/deleteText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="destroy" />
+    </LinearLayout>
+
+
+</android.widget.RelativeLayout>
