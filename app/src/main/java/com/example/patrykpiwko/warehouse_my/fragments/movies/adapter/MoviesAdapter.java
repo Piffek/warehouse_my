@@ -62,6 +62,8 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
             ButterKnife.bind(this, itemView);
         }
 
+
+
         public void bind(Movie movie){
             if(movie == null){
                 return;
@@ -71,9 +73,12 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
             year.setText(movie.getYear());
 
             if(movie.getGrade() != null){
+                StringBuilder stringGrade = new StringBuilder();
                 grade.setVisibility(View.VISIBLE);
                 double myGrade = movie.getGrade() / 10;
-                grade.setText(myGrade + " / 10");
+                stringGrade.append(myGrade);
+                stringGrade.append(" / 10");
+                grade.setText(stringGrade);
             }
 
             Picasso.get()
