@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public abstract class BaseActivity extends AppCompatActivity implements NavigationInterface {
+
+    private Unbinder unbinder;
 
     protected abstract int getContentView();
 
@@ -19,7 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         super.onCreate(savedInstanceState);
         setContentView(getContentView());
 
-        ButterKnife.bind(this);
+        unbinder = ButterKnife.bind(this);
     }
 
     @Override
@@ -33,5 +36,10 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         ft.replace(getFragmentContainer(), fragment).commit();
     }
 
+    @Override
+    protected void onDestroy() {
+        unbinder.unbind();
 
+        super.onDestroy();
+    }
 }

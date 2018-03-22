@@ -39,12 +39,6 @@ public class CountriesFragment extends BaseFragment {
             nameOfUser.setText("");
             getMainActivityInterface().deleteUserData();
         }
-        onDestroy();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
     }
 
     @Override

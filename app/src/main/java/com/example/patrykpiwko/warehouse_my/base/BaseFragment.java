@@ -4,18 +4,22 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.patrykpiwko.warehouse_my.activities.MainActivityInterface;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public abstract class BaseFragment extends Fragment {
 
-    public String TAG = getClass().getSimpleName();
-
     private NavigationInterface navigationInterface;
     private MainActivityInterface mainActivityInterface;
+
+    private Unbinder unbinder;
+
+    public String TAG = getClass().getSimpleName();
 
     public abstract int getContentFragment();
 
@@ -27,7 +31,7 @@ public abstract class BaseFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
 
         if(getMainActivityInterface() != null){
             getMainActivityInterface().setTitle(getTitle());
@@ -54,10 +58,6 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
 
     @Nullable
     public NavigationInterface getNavigationInterface() {
@@ -67,5 +67,15 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     public MainActivityInterface getMainActivityInterface(){
         return  mainActivityInterface;
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.d(TAG, "OnDestroyFragment");
+        navigationInterface = null;
+        mainActivityInterface = null;
+        unbinder.unbind();
+
+        super.onDestroy();
     }
 }

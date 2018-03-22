@@ -17,6 +17,8 @@ public class LoginFragment extends BaseFragment {
     @BindView(R.id.nameInputLogin)
     EditText nameInputLogin;
 
+    public String toDestroy = "";
+
     @Override
     public int getContentFragment() {
         return R.layout.fragment_login;
@@ -58,5 +60,13 @@ public class LoginFragment extends BaseFragment {
         if(getNavigationInterface() != null){
             getNavigationInterface().showFragment(new CountriesFragment());
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        toDestroy = null;
+        nameInputLogin.setText("");
+
+        super.onDestroy();
     }
 }

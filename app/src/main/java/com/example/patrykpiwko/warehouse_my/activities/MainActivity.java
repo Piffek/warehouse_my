@@ -3,7 +3,6 @@ package com.example.patrykpiwko.warehouse_my.activities;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.widget.Button;
-import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -11,7 +10,7 @@ import com.example.patrykpiwko.warehouse_my.R;
 import com.example.patrykpiwko.warehouse_my.base.BaseActivity;
 import com.example.patrykpiwko.warehouse_my.fragments.CountriesFragment;
 import com.example.patrykpiwko.warehouse_my.fragments.LoginFragment;
-import com.example.patrykpiwko.warehouse_my.fragments.ResultFragment;
+import com.example.patrykpiwko.warehouse_my.fragments.movies.MoviesFragment;
 import com.example.patrykpiwko.warehouse_my.models.User;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -100,7 +99,7 @@ public class MainActivity extends BaseActivity implements  MainActivityInterface
 
     @OnClick(R.id.btn2)
     public void onBtn2Click(){
-        showFragment(new ResultFragment());
+        showFragment(new MoviesFragment());
     }
 
     @OnClick(R.id.btn3)
