@@ -1,19 +1,15 @@
 package com.example.patrykpiwko.warehouse_my.fragments.movies.adapter;
 
-
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.patrykpiwko.warehouse_my.R;
 import com.example.patrykpiwko.warehouse_my.models.Movie;
 import com.squareup.picasso.Picasso;
-
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -43,6 +39,23 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //operation at parameters from Movie class
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.picture)
@@ -64,13 +77,14 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
 
 
 
+        //operation at parameters from Movie class
         public void bind(Movie movie){
             if(movie == null){
                 return;
             }
             grade.setVisibility(View.GONE);
             title.setText(movie.getTitle());
-            year.setText(movie.getYear());
+            year.setText(String.valueOf(movie.getYear()));
 
             if(movie.getGrade() != null){
                 StringBuilder stringGrade = new StringBuilder();
