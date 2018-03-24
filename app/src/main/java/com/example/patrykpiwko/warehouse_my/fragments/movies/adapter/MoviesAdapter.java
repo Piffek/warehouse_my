@@ -86,14 +86,12 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
             title.setText(movie.getTitle());
             year.setText(String.valueOf(movie.getYear()));
 
-            if(movie.getGrade() != null){
-                StringBuilder stringGrade = new StringBuilder();
-                grade.setVisibility(View.VISIBLE);
-                double myGrade = movie.getGrade() / 10;
-                stringGrade.append(myGrade);
-                stringGrade.append(" / 10");
-                grade.setText(stringGrade);
-            }
+            StringBuilder stringGrade = new StringBuilder();
+            grade.setVisibility(View.VISIBLE);
+            double myGrade = movie.getGrade() / 10;
+            stringGrade.append(myGrade);
+            stringGrade.append(" / 10");
+            grade.setText(stringGrade);
 
             Picasso.get()
                     .load(movie.getPictureURL())

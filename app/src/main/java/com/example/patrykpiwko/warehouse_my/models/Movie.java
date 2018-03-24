@@ -29,8 +29,19 @@ public class Movie implements Comparable<Movie> {
     }
 
     @NonNull
-    public Integer getYear() {
-        return year;
+    public int getYear() {
+        if(year != null){
+            return year;
+        }
+        return 0;
+    }
+
+    @Nullable
+    public int getGrade() {
+        if(grade != null){
+            return grade;
+        }
+        return 0;
     }
 
     @Nullable
@@ -38,14 +49,9 @@ public class Movie implements Comparable<Movie> {
         return pictureURL;
     }
 
-    @Nullable
-    public Integer getGrade() {
-        return grade;
-    }
-
 
     @Override
     public int compareTo(@NonNull Movie movie) {
-        return this.year.compareTo(movie.year);
+        return year.compareTo(movie.getYear());
     }
 }

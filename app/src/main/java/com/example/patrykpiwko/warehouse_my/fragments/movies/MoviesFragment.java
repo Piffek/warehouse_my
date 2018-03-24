@@ -52,10 +52,10 @@ public class MoviesFragment extends BaseFragment {
 
     List<Movie> getMoviesList(){
         List<Movie> movieList = new ArrayList<>();
-        Movie movie = new Movie("Mad Max: Fury Road", 2015,"https://picsum.photos/200/300/?image=110",30);
+        Movie movie = new Movie("Mad Max: Fury Road", null,"https://picsum.photos/200/300/?image=110",30);
         movieList.add(movie);
 
-        movie = new Movie("Inside Out",  2015,"https://picsum.photos/200/300/?image=120",50);
+        movie = new Movie("Inside Out",  2015,"https://picsum.photos/200/300/?image=120",null);
         movieList.add(movie);
 
         movie = new Movie("Star Wars: Episode VII - The Force Awakens",  2015,"https://picsum.photos/200/300/?image=130",50);
