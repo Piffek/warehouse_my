@@ -1,20 +1,28 @@
 package com.example.patrykpiwko.warehouse_my.fragments.movies.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.patrykpiwko.warehouse_my.R;
 import com.example.patrykpiwko.warehouse_my.models.Movie;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHolder> {
     private List<Movie> moviesList;
+
+    public String TAG = "You clicked";
 
     public MoviesAdapter(List<Movie> moviesList) {
         this.moviesList = moviesList;
@@ -38,7 +46,14 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
         return moviesList.size();
     }
 
+    public void addMovie(Movie movie){
+       moviesList.add(0, movie);
+       notifyItemInserted(0);
+    }
 
+    public void removeMovie(){
+        Log.d(TAG, "remove");
+    }
 
 
 

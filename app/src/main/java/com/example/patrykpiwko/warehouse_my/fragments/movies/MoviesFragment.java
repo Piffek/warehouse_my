@@ -4,24 +4,25 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.patrykpiwko.warehouse_my.R;
 import com.example.patrykpiwko.warehouse_my.base.BaseFragment;
 import com.example.patrykpiwko.warehouse_my.fragments.movies.adapter.MoviesAdapter;
 import com.example.patrykpiwko.warehouse_my.models.Movie;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MoviesFragment extends BaseFragment {
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
+
+    List<Movie> movieList = new ArrayList<>();
+
+    MoviesAdapter moviesAdapter = new MoviesAdapter(getMoviesList());
 
     @Override
     public int getContentFragment() {
@@ -42,16 +43,29 @@ public class MoviesFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        MoviesAdapter moviesAdapter = new MoviesAdapter(getMoviesList());
-
         recyclerView.setAdapter(moviesAdapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
     }
 
+    @OnClick(R.id.addNewMovie)
+    public void onClick(){
+        Movie movie = new Movie("Harry Potter", 20111,"https://picsum.photos/200/300/?image=110",30);
+        this.moviesAdapter.addMovie(movie);
+    }
+
+    @OnClick(R.id.deleteMovie)
+    public void deleteMovie(){
+        this.moviesAdapter.removeMovie();
+    }
+
+
+
+
+
     List<Movie> getMoviesList(){
-        List<Movie> movieList = new ArrayList<>();
+
         Movie movie = new Movie("Mad Max: Fury Road", null,"https://picsum.photos/200/300/?image=110",30);
         movieList.add(movie);
 
