@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.patrykpiwko.warehouse_my.activities.NewMovieActivity">
+
+    <RelativeLayout
+        android:id="@+id/selectData"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <EditText
+            android:id="@+id/nameOfYourMovie"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="your movie name" />
+
+        <Button
+            android:id="@+id/popUpButtonWithYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gradeOfYourMovie"
+            android:layout_margin="10dp"
+            android:text="Select year" />
+
+        <EditText
+            android:id="@+id/gradeOfYourMovie"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:layout_toRightOf="@+id/nameOfYourMovie"
+            android:gravity="center"
+            android:text="grade" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/saveData"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/selectData"
+        android:layout_margin="10dp"
+        android:text="Save" />
+
+
+</android.widget.RelativeLayout>

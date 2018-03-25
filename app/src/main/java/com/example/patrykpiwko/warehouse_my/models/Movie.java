@@ -3,7 +3,9 @@ package com.example.patrykpiwko.warehouse_my.models;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-public class Movie implements Comparable<Movie> {
+import java.io.Serializable;
+
+public class Movie implements Comparable<Movie>, Serializable {
 
     @NonNull
     private String title;

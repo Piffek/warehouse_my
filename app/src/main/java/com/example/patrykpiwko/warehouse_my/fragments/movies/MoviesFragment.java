@@ -1,11 +1,19 @@
 package com.example.patrykpiwko.warehouse_my.fragments.movies;
 
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
 import com.example.patrykpiwko.warehouse_my.R;
+import com.example.patrykpiwko.warehouse_my.activities.NewMovieActivity;
 import com.example.patrykpiwko.warehouse_my.base.BaseFragment;
 import com.example.patrykpiwko.warehouse_my.fragments.movies.adapter.MoviesAdapter;
 import com.example.patrykpiwko.warehouse_my.models.Movie;
@@ -31,7 +39,7 @@ public class MoviesFragment extends BaseFragment {
 
     @Override
     public String getTitle() {
-        return "btn2";
+        return "Movies";
     }
 
     @Override
@@ -50,10 +58,28 @@ public class MoviesFragment extends BaseFragment {
     }
 
     @OnClick(R.id.addNewMovie)
-    public void onClick(){
-        Movie movie = new Movie("Harry Potter", 20111,"https://picsum.photos/200/300/?image=110",30);
-        this.moviesAdapter.addMovie(movie);
+    public void onClick(View view){
+        if(getActivity() != null){
+            Intent downloadIntent = new Intent(getActivity(), NewMovieActivity.class);
+            startActivityForResult(downloadIntent, NewMovieActivity.REQUEST_CODE);
+        }
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == NewMovieActivity.REQUEST_CODE ){
+            if(resultCode == Activity.RESULT_OK){
+                Movie result = (Movie) data.getSerializableExtra(NewMovieActivity.EXTRA_MOVIE);
+                if(result != null && moviesAdapter != null){
+                    moviesAdapter.addMovie(result);
+                }
+            }
+        }else{
+            Toast.makeText(getActivity(), "Bad", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 
     @OnClick(R.id.deleteMovie)
     public void deleteMovie(){
