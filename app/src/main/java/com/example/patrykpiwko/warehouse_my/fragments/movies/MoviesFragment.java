@@ -72,10 +72,12 @@ public class MoviesFragment extends BaseFragment {
                 Movie result = (Movie) data.getSerializableExtra(NewMovieActivity.EXTRA_MOVIE);
                 if(result != null && moviesAdapter != null){
                     moviesAdapter.addMovie(result);
+                }else{
+                    Toast.makeText(getActivity(), "what is wrong?", Toast.LENGTH_SHORT).show();
                 }
             }
         }else{
-            Toast.makeText(getActivity(), "Bad", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Bad code", Toast.LENGTH_SHORT).show();
         }
     }
 
