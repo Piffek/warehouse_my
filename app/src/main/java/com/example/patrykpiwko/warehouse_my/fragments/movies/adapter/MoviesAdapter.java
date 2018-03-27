@@ -7,17 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.patrykpiwko.warehouse_my.R;
 import com.example.patrykpiwko.warehouse_my.models.Movie;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHolder> {
     private List<Movie> moviesList;
@@ -47,8 +42,21 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
     }
 
     public void addMovie(Movie movie){
-       moviesList.add(0, movie);
-       notifyItemInserted(0);
+        int pos = getPosForMovie(movie);
+
+       moviesList.add(pos, movie);
+       notifyItemInserted(pos);
+    }
+
+    private int getPosForMovie(Movie movie){
+        int pos = 0;
+        for (Movie item : moviesList){
+            if(item.getYear() >= movie.getYear()){
+                return pos;
+            }
+            pos++;
+        }
+        return pos;
     }
 
     public void removeMovie(){
@@ -103,7 +111,7 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
 
             StringBuilder stringGrade = new StringBuilder();
             grade.setVisibility(View.VISIBLE);
-            double myGrade = movie.getGrade() / 10;
+            double myGrade = movie.getGrade() / 10  ;
             stringGrade.append(myGrade);
             stringGrade.append(" / 10");
             grade.setText(stringGrade);

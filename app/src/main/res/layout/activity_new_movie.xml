@@ -11,30 +11,51 @@
         android:layout_width="match_parent"
         android:layout_height="200dp">
 
-        <EditText
-            android:id="@+id/nameOfYourMovie"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="your movie name" />
+        <LinearLayout
+            android:id="@+id/forInputNewMovie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/nameOfYourMovie"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="your movie name"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/gradeOfYourMovie"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="grade"
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
 
         <Button
             android:id="@+id/popUpButtonWithYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/gradeOfYourMovie"
+            android:layout_below="@+id/forInputNewMovie"
             android:layout_margin="10dp"
             android:text="Select year" />
 
-        <EditText
-            android:id="@+id/gradeOfYourMovie"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:layout_toRightOf="@+id/nameOfYourMovie"
-            android:gravity="center"
-            android:text="grade" />
     </RelativeLayout>
 
     <Button
@@ -44,6 +65,14 @@
         android:layout_below="@+id/selectData"
         android:layout_margin="10dp"
         android:text="Save" />
+
+    <Button
+        android:id="@+id/exitFromAddNewMovie"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/saveData"
+        android:layout_margin="10dp"
+        android:text="Exit" />
 
 
 </android.widget.RelativeLayout>

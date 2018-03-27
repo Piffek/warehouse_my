@@ -18,12 +18,33 @@ public class Movie implements Comparable<Movie>, Serializable {
     @Nullable
     private Integer grade;
 
+    public Movie() {
+
+    }
+
     public Movie(@NonNull String title, Integer year, String pictureURL, Integer grade) {
         this.title = title;
         this.year = year;
         this.pictureURL = pictureURL;
         this.grade = grade;
     }
+
+    public void setTitle(@NonNull String title) {
+        this.title = title;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public void setPictureURL(@Nullable String pictureURL) {
+        this.pictureURL = pictureURL;
+    }
+
+    public void setGrade(@Nullable Integer grade) {
+        this.grade = grade;
+    }
+
 
     @NonNull
     public String getTitle() {

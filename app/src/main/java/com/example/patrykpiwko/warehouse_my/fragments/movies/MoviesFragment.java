@@ -1,17 +1,13 @@
 package com.example.patrykpiwko.warehouse_my.fragments.movies;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
-
 import com.example.patrykpiwko.warehouse_my.R;
 import com.example.patrykpiwko.warehouse_my.activities.NewMovieActivity;
 import com.example.patrykpiwko.warehouse_my.base.BaseFragment;
@@ -72,9 +68,9 @@ public class MoviesFragment extends BaseFragment {
                 Movie result = (Movie) data.getSerializableExtra(NewMovieActivity.EXTRA_MOVIE);
                 if(result != null && moviesAdapter != null){
                     moviesAdapter.addMovie(result);
-                }else{
-                    Toast.makeText(getActivity(), "what is wrong?", Toast.LENGTH_SHORT).show();
                 }
+            }else{
+                Toast.makeText(getActivity(), "canceled", Toast.LENGTH_SHORT).show();
             }
         }else{
             Toast.makeText(getActivity(), "Bad code", Toast.LENGTH_SHORT).show();
