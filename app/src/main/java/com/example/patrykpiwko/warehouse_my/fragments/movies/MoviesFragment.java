@@ -19,14 +19,14 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MoviesFragment extends BaseFragment {
+public class MoviesFragment extends BaseFragment implements MoviesAdapter.MoviesAdapterInterface {
+
+    List<Movie> movieList = new ArrayList<>();
+    MoviesAdapter moviesAdapter;
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    List<Movie> movieList = new ArrayList<>();
-
-    MoviesAdapter moviesAdapter = new MoviesAdapter(getMoviesList());
 
     @Override
     public int getContentFragment() {
@@ -46,6 +46,10 @@ public class MoviesFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        getMoviesList();
+
+        this.moviesAdapter = new MoviesAdapter(movieList, this);
 
         recyclerView.setAdapter(moviesAdapter);
 
@@ -77,12 +81,6 @@ public class MoviesFragment extends BaseFragment {
         }
     }
 
-
-
-    @OnClick(R.id.deleteMovie)
-    public void deleteMovie(){
-        this.moviesAdapter.removeMovie();
-    }
 
 
 
@@ -141,5 +139,25 @@ public class MoviesFragment extends BaseFragment {
         Collections.sort(movieList);
 
         return movieList;
+    }
+
+    @Override
+    public void onItemClick(Movie movie) {
+        Toast.makeText(getActivity(), movie.getTitle(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onItemRemoveClick(Movie movie, int position) {
+        if(moviesAdapter != null) {
+            Toast.makeText(getActivity(), "Movie deleted", Toast.LENGTH_SHORT).show();
+            moviesAdapter.removeMovie(position);
+        }
+    }
+
+    @OnClick(R.id.deleteMovie)
+    public void editMovie(){
+        if(moviesAdapter != null){
+            moviesAdapter.setInEditMode(! moviesAdapter.isInEditMode());
+        }
     }
 }

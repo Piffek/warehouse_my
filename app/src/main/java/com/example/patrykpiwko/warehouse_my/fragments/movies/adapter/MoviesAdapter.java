@@ -5,22 +5,36 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.patrykpiwko.warehouse_my.R;
+import com.example.patrykpiwko.warehouse_my.activities.MainActivityInterface;
 import com.example.patrykpiwko.warehouse_my.models.Movie;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHolder> {
-    private List<Movie> moviesList;
 
+    public interface MoviesAdapterInterface {
+        public void onItemClick(Movie movie);
+        public void onItemRemoveClick(Movie movie, int position);
+    }
+
+    private boolean isInEditMode;
+    private MoviesAdapterInterface moviesAdapterInterface;
+    private List<Movie> moviesList;
     public String TAG = "You clicked";
 
-    public MoviesAdapter(List<Movie> moviesList) {
+    //region adapter methods
+    public MoviesAdapter(List<Movie> moviesList, MoviesAdapterInterface moviesAdapterInterface) {
         this.moviesList = moviesList;
+        this.moviesAdapterInterface = moviesAdapterInterface;
     }
 
     @Override
@@ -32,7 +46,7 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
         holder.bind(moviesList.get(position));
     }
 
@@ -40,12 +54,25 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
     public int getItemCount() {
         return moviesList.size();
     }
+    //endregion
+
+
+
+    public boolean isInEditMode() {
+        return isInEditMode;
+    }
+
+    public void setInEditMode(boolean inEditMode) {
+        isInEditMode = inEditMode;
+        notifyDataSetChanged();
+    }
+
+
 
     public void addMovie(Movie movie){
         int pos = getPosForMovie(movie);
-
-       moviesList.add(pos, movie);
-       notifyItemInserted(pos);
+        moviesList.add(pos, movie);
+        notifyItemInserted(pos);
     }
 
     private int getPosForMovie(Movie movie){
@@ -59,8 +86,9 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
         return pos;
     }
 
-    public void removeMovie(){
-        Log.d(TAG, "remove");
+    public void removeMovie(int moviePosition){
+        moviesList.remove(moviePosition);
+        notifyItemRemoved(moviePosition);
     }
 
 
@@ -93,6 +121,11 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
         @BindView(R.id.grade)
         TextView grade;
 
+        @BindView(R.id.removeButton)
+        ImageView removeButton;
+
+
+
         public MyViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -102,15 +135,21 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
 
         //operation at parameters from Movie class
         public void bind(Movie movie){
+
             if(movie == null){
                 return;
             }
-            grade.setVisibility(View.GONE);
+
+            removeButton.setVisibility(isInEditMode ? View.VISIBLE : View.INVISIBLE);
+
             title.setText(movie.getTitle());
             year.setText(String.valueOf(movie.getYear()));
 
+            year.setVisibility(movie.getYear() != 0 ? View.VISIBLE : View.INVISIBLE);
+            grade.setVisibility(movie.getGrade() > 0 ? View.VISIBLE : View.INVISIBLE);
+
+
             StringBuilder stringGrade = new StringBuilder();
-            grade.setVisibility(View.VISIBLE);
             double myGrade = movie.getGrade() / 10  ;
             stringGrade.append(myGrade);
             stringGrade.append(" / 10");
@@ -122,6 +161,22 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
                     .error(R.drawable.common_google_signin_btn_text_dark_focused)
                     .into(picture);
         }
+
+        @OnClick({R.id.picture, R.id.content})
+        public void clickToPicture(){
+            if(moviesAdapterInterface != null){
+                moviesAdapterInterface.onItemClick(moviesList.get(getAdapterPosition()));
+            }
+        }
+
+        @OnClick(R.id.removeButton)
+        public void removeButton(){
+            if(moviesAdapterInterface != null){
+                moviesAdapterInterface.onItemRemoveClick(moviesList.get(getAdapterPosition()), getAdapterPosition());
+            }
+        }
+
+
 
 
     }
