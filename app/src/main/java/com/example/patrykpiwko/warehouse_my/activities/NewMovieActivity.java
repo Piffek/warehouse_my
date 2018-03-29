@@ -38,6 +38,8 @@ public class NewMovieActivity extends BaseActivity implements OnMenuItemClickLis
     @BindView(R.id.popUpButtonWithYear)
     Button popUpButtonWithYear;
 
+    String year;
+
     public Movie getMovie(){
         nameOfYourMovie.setError(null);
         gradeOfYourMovie.setError(null);
@@ -48,7 +50,7 @@ public class NewMovieActivity extends BaseActivity implements OnMenuItemClickLis
         Random rand = new Random();
         String pictureURL = "https://picsum.photos/200/300/?image=" +(100 + (int)(Math.random() * ((900 - 100) + 1)));
         Log.d("cos", pictureURL);
-        Integer year = 1969;
+        Integer parsedYear = year != null ? Utils.parseInteger(this.year) : null;
         Integer integerOfGrade;
 
          if(TextUtils.isEmpty(name)){
@@ -68,8 +70,13 @@ public class NewMovieActivity extends BaseActivity implements OnMenuItemClickLis
              return null;
          }
 
+         if(parsedYear == null){
+             popUpButtonWithYear.setError("year field is empty");
+             return null;
+         }
+
         movie.setPictureURL(pictureURL);
-        movie.setYear(year);
+        movie.setYear(parsedYear);
         movie.setGrade(integerOfGrade);
         movie.setTitle(name);
 
@@ -132,17 +139,13 @@ public class NewMovieActivity extends BaseActivity implements OnMenuItemClickLis
 
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
-        switch (menuItem.getItemId()){
-            case 0:
-                Log.d("MENU", "click to"+menuItem.getItemId());
+        for(int i = 0; i < arrayWithYear().size(); i++) {
+            if(i == menuItem.getItemId()){
+                year = menuItem.getTitle().toString();
                 break;
-            case 1:
-                Log.d("MENU", "click to"+menuItem.getItemId());
-                break;
-            case 2:
-                Log.d("MENU", "click to"+menuItem.getItemId());
-                break;
+            }
         }
+
         return false;
     }
 }
