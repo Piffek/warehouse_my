@@ -1,6 +1,8 @@
 package com.example.patrykpiwko.warehouse_my.fragments.movies;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +15,8 @@ import com.example.patrykpiwko.warehouse_my.activities.NewMovieActivity;
 import com.example.patrykpiwko.warehouse_my.base.BaseFragment;
 import com.example.patrykpiwko.warehouse_my.fragments.movies.adapter.MoviesAdapter;
 import com.example.patrykpiwko.warehouse_my.models.Movie;
+import com.example.patrykpiwko.warehouse_my.utils.Utils;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -54,6 +58,7 @@ public class MoviesFragment extends BaseFragment implements MoviesAdapter.Movies
         recyclerView.setAdapter(moviesAdapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+
 
     }
 
@@ -143,7 +148,15 @@ public class MoviesFragment extends BaseFragment implements MoviesAdapter.Movies
 
     @Override
     public void onItemClick(Movie movie) {
-        Toast.makeText(getActivity(), movie.getTitle(), Toast.LENGTH_SHORT).show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(movie.getTitle()).setMessage(getContentOfMovie(movie));
+        builder.show();
+    }
+
+    private String getContentOfMovie(Movie movie){
+        return
+        "Year: "+ Utils.integerToString(movie.getYear())+
+                "\nGrade: "+ Utils.calculateGrade(movie);
     }
 
     @Override

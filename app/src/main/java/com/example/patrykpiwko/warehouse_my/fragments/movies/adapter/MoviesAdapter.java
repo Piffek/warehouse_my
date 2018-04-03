@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.patrykpiwko.warehouse_my.R;
 import com.example.patrykpiwko.warehouse_my.activities.MainActivityInterface;
 import com.example.patrykpiwko.warehouse_my.models.Movie;
+import com.example.patrykpiwko.warehouse_my.utils.Utils;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 import butterknife.BindView;
@@ -148,12 +149,7 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
             year.setVisibility(movie.getYear() != 0 ? View.VISIBLE : View.INVISIBLE);
             grade.setVisibility(movie.getGrade() > 0 ? View.VISIBLE : View.INVISIBLE);
 
-
-            StringBuilder stringGrade = new StringBuilder();
-            double myGrade = movie.getGrade() / 10  ;
-            stringGrade.append(myGrade);
-            stringGrade.append(" / 10");
-            grade.setText(stringGrade);
+            grade.setText(Utils.calculateGrade(movie));
 
             Picasso.get()
                     .load(movie.getPictureURL())
@@ -175,9 +171,5 @@ public class MoviesAdapter  extends RecyclerView.Adapter<MoviesAdapter.MyViewHol
                 moviesAdapterInterface.onItemRemoveClick(moviesList.get(getAdapterPosition()), getAdapterPosition());
             }
         }
-
-
-
-
     }
 }
